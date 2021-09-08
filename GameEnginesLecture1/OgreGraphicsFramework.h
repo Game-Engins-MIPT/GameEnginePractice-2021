@@ -3,8 +3,13 @@
 #include "Ogre.h"
 #include "OgreRoot.h"
 #include "OgreWindow.h"
+#include "OgreItem.h"
 
 #include "Compositor/OgreCompositorManager2.h"
+
+#include "OgreHlms.h"
+#include "Hlms/Unlit/OgreHlmsUnlit.h"
+#include "Hlms/Pbs/OgreHlmsPbs.h"
 
 #include "RenderSystems/Direct3D11/OgreD3D11Plugin.h"
 
