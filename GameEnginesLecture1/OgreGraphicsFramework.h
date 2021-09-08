@@ -4,6 +4,8 @@
 #include "OgreRoot.h"
 #include "OgreWindow.h"
 #include "OgreItem.h"
+#include "OgreMeshManager2.h"
+#include "OgreMesh2.h"
 
 #include "Compositor/OgreCompositorManager2.h"
 
