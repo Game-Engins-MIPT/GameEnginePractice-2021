@@ -189,8 +189,12 @@ void OgreGraphicsFramework::initialize()
 
 bool OgreGraphicsFramework::SetOgreConfig()
 {
+#ifdef _DEBUG
 	constexpr bool bAlwaysShowConfigWindow = true;
 	if (bAlwaysShowConfigWindow || !m_pRoot->restoreConfig())
+#else
+	if (!m_pRoot->restoreConfig())
+#endif
 	{
 		if (!m_pRoot->showConfigDialog())
 		{
