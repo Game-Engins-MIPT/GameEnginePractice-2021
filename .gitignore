@@ -348,3 +348,7 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# FIXME(arovesto) idk, this files are created each build, plz review
+GameEnginesLecture1/100000000PixelShader_ps.hlsl                                                                                       
+GameEnginesLecture1/100000000VertexShader_vs.hlsl 

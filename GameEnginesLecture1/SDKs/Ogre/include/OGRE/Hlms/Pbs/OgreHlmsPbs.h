@@ -29,7 +29,7 @@ THE SOFTWARE.
 #define _OgreHlmsPbs_H_
 
 #include "OgreHlmsPbsPrerequisites.h"
-#include "OgreHlmsBufferManager.h"
+#include "../Common/OgreHlmsBufferManager.h"
 #include "OgreConstBufferPool.h"
 #include "OgreMatrix4.h"
 #include "OgreHeaderPrefix.h"
