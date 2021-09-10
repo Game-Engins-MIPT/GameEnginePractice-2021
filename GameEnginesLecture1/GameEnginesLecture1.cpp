@@ -10,8 +10,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 {
     OgreGraphicsFramework ogreGraphicsFramework;
 
-    ogreGraphicsFramework.initialize();
-
     while (!ogreGraphicsFramework.GetQuit())
         ogreGraphicsFramework.update();
 

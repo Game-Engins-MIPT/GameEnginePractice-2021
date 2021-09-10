@@ -30,6 +30,9 @@
     <ClInclude Include="OgreGraphicsFramework.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ProjectDefines.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameEnginesLecture1.cpp">

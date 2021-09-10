@@ -1,5 +1,7 @@
 #include "OgreGraphicsFramework.h"
 
+#include "ProjectDefines.h"
+
 OgreGraphicsFramework::OgreGraphicsFramework() :
 	m_pRoot(nullptr),
 	m_pRenderWindow(nullptr),
@@ -8,10 +10,6 @@ OgreGraphicsFramework::OgreGraphicsFramework() :
 	m_pCamera(nullptr),
 	m_pWorkspace(nullptr),
 	m_bQuit(false)
-{
-}
-
-void OgreGraphicsFramework::initialize()
 {
 	//Init
 	m_pRoot = OGRE_NEW Ogre::Root();
@@ -219,6 +217,11 @@ void OgreGraphicsFramework::initialize()
 	light->setDirection(Ogre::Vector3(-1, -1, -1).normalisedCopy());
 }
 
+OgreGraphicsFramework::~OgreGraphicsFramework()
+{
+	SAFE_OGRE_DELETE(m_pRoot);
+}
+
 bool OgreGraphicsFramework::SetOgreConfig()
 {
 #ifdef _DEBUG
@@ -239,6 +242,8 @@ bool OgreGraphicsFramework::SetOgreConfig()
 
 void OgreGraphicsFramework::update()
 {
+	Ogre::WindowEventUtilities::messagePump();
+
 	if (m_pRenderWindow->isVisible())
 		m_bQuit |= !m_pRoot->renderOneFrame();
 }

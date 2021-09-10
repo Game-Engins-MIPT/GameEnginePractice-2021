@@ -15,15 +15,12 @@
 
 #include "RenderSystems/Direct3D11/OgreD3D11Plugin.h"
 
-
 class OgreGraphicsFramework
 {
 public:
 	OgreGraphicsFramework();
-	//~OgreGraphicsFramework();
+	~OgreGraphicsFramework();
 
-	void initialize();
-	//void deinitialize();
 	void update();
 
 	bool SetOgreConfig();
