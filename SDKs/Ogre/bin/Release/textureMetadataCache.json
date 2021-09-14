@@ -1,0 +1,94 @@
+{
+	"reserved_pool_ids" :
+	[
+		{
+			"poolId" : 992044,
+			"resolution" : [64, 64, 3],
+			"mipmaps" : 1,
+			"format" : "PFG_RGBA16_FLOAT"
+		}
+	],
+	"textures" :
+	{
+		"AreaLightMask0" : 
+		{
+			"resolution" : [256, 256, 1],
+			"mipmaps" : 9,
+			"format" : "PFG_R8_UNORM",
+			"texture_type" : 3,
+			"poolId" : 759384
+		},
+		"Rocks_Spec.tga" : 
+		{
+			"resolution" : [1024, 1024, 1],
+			"mipmaps" : 11,
+			"format" : "PFG_R8_UNORM",
+			"texture_type" : 3,
+			"poolId" : 0
+		},
+		"MRAMOR-bump.jpg" : 
+		{
+			"resolution" : [600, 600, 1],
+			"mipmaps" : 10,
+			"format" : "PFG_R8_UNORM",
+			"texture_type" : 3,
+			"poolId" : 0
+		},
+		"ltcMatrix1.dds" : 
+		{
+			"resolution" : [64, 64, 1],
+			"mipmaps" : 1,
+			"format" : "PFG_RGBA16_FLOAT",
+			"texture_type" : 3,
+			"poolId" : 992044
+		},
+		"brtfLutDfg.dds" : 
+		{
+			"resolution" : [64, 64, 1],
+			"mipmaps" : 1,
+			"format" : "PFG_RGBA16_FLOAT",
+			"texture_type" : 3,
+			"poolId" : 992044
+		},
+		"Rocks_Normal.tga" : 
+		{
+			"resolution" : [1024, 1024, 1],
+			"mipmaps" : 11,
+			"format" : "PFG_RG8_SNORM",
+			"texture_type" : 3,
+			"poolId" : 0
+		},
+		"SaintPetersBasilica.dds" : 
+		{
+			"resolution" : [2048, 2048, 6],
+			"mipmaps" : 12,
+			"format" : "PFG_BC1_UNORM_SRGB",
+			"texture_type" : 5,
+			"poolId" : 0
+		},
+		"Rocks_Diffuse.tga" : 
+		{
+			"resolution" : [640, 640, 1],
+			"mipmaps" : 10,
+			"format" : "PFG_RGBA8_UNORM_SRGB",
+			"texture_type" : 3,
+			"poolId" : 0
+		},
+		"ltcMatrix0.dds" : 
+		{
+			"resolution" : [64, 64, 1],
+			"mipmaps" : 1,
+			"format" : "PFG_RGBA16_FLOAT",
+			"texture_type" : 3,
+			"poolId" : 992044
+		},
+		"MRAMOR6X6.jpg" : 
+		{
+			"resolution" : [600, 600, 1],
+			"mipmaps" : 10,
+			"format" : "PFG_RGBA8_UNORM_SRGB",
+			"texture_type" : 3,
+			"poolId" : 0
+		}
+	}
+}
