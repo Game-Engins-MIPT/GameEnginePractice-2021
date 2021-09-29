@@ -220,6 +220,7 @@ byte* RenderThread::AddCommand(RenderCommand eRC, size_t nParamBytes)
 
 	byte* ptr = m_Commands[m_nFrameFill].data() + m_Commands[m_nFrameFill].capacity() * sizeof(byte) - cmdSize;
 	AddDWORD(ptr, eRC);
+  delete[] storage;
 	return ptr;
 }
 

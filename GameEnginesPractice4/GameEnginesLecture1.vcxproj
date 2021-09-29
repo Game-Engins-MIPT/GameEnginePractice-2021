@@ -156,6 +156,9 @@
     <PostBuildEvent>
       <Command>xcopy /y $(SolutionDir)\..\SDKs\Ogre\bin\Release $(TargetDir)</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>xcopy /y $(SolutionDir)\..\SDKs\Ogre\bin\Release $(TargetDir)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Code\FileSystem\FileSystem.h" />
