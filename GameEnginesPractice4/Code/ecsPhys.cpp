@@ -29,16 +29,9 @@ void register_ecs_phys_systems(flecs::world &ecs)
       float dot = planeNorm.dotProduct(pos);
       if (dot < plane.w)
       {
-        pos -= dot * planeNorm;
+        pos -= (dot - plane.w) * planeNorm;
         vel -= (1.f + bounciness.val) * planeNorm * planeNorm.dotProduct(vel);
       }
-    });
-
-
-  ecs.system<Position, const Velocity>()
-    .each([&](flecs::entity e, Position &pos, const Velocity &vel)
-    {
-      pos += vel * e.delta_time();
     });
 
 
@@ -46,6 +39,13 @@ void register_ecs_phys_systems(flecs::world &ecs)
     .each([&](flecs::entity e, Velocity &vel, const FrictionAmount &friction)
     {
       vel -= vel * friction.val * e.delta_time();
+    });
+
+
+  ecs.system<Position, const Velocity>()
+    .each([&](flecs::entity e, Position &pos, const Velocity &vel)
+    {
+      pos += vel * e.delta_time();
     });
 
 

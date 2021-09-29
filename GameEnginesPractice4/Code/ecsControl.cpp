@@ -12,12 +12,12 @@ void register_ecs_control_systems(flecs::world &ecs)
       ecs.query<InputHandlerPtr>()
       .each([&](InputHandlerPtr input)
         {
-          float velX = 0.f;
+          float deltaVel = 0.f;
           if (input.ptr->GetInputState().test(eIC_GoLeft))
-            velX -= spd;
+            deltaVel -= spd;
           if (input.ptr->GetInputState().test(eIC_GoRight))
-            velX += spd;
-          vel.x += velX * e.delta_time();
+            deltaVel += spd;
+          vel.x += deltaVel * e.delta_time();
         });
     });
 

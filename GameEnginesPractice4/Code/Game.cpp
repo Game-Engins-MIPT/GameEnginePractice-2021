@@ -3,6 +3,7 @@
 #include "ecsSystems.h"
 #include "ecsPhys.h"
 #include "ecsControl.h"
+#include <stdlib.h>
 
 Game::Game() :
 	m_pRenderEngine(nullptr)
@@ -28,30 +29,34 @@ Game::Game() :
     .set(Velocity{0.f, 0.f, 0.f})
     .set(Speed{10.f})
     .set(FrictionAmount{0.9f})
-    //.set(JumpSpeed{10.f})
-    //.set(Gravity{0.f, -9.8065f, 0.f})
-    //.set(BouncePlane{0.f, 1.f, 0.f, 0.f})
-    //.set(Bounciness{0.3f})
+    .set(JumpSpeed{20.f})
+    .set(Gravity{0.f, -9.8065f, 0.f})
+    .set(BouncePlane{0.f, 1.f, 0.f, 0.f})
+    .set(Bounciness{0.3f})
     .set(MeshName{Ogre::String("ogrehead.mesh Imported")})
     .add<Controllable>();
 
   auto ogreHeadJump = ecs.entity()
-    .set(Position{8.f, 0.f, 0.f})
-    .set(Velocity{0.f, 5.f, 0.f})
+    .set(Position{8.f, 5.f, 0.f})
+    .set(Velocity{0.f, 3.f, 0.f})
     .set(Gravity{0.f, -9.8065f, 0.f})
-    .set(BouncePlane{0.f, 1.f, 0.f, 0.f})
+    .set(BouncePlane{0.f, 1.f, 0.f, 5.f})
     .set(Bounciness{1.f})
     //.set(ShiverAmount{0.03f})
     .set(MeshName{Ogre::String("ogrehead.mesh Imported")});
 
-  auto ogreHeadJumpFric = ecs.entity()
-    .set(Position{-8.f, 0.f, -8.f})
-    .set(Velocity{0.f, 5.f, 0.f})
-    .set(Gravity{0.f, -9.8065f, 0.f})
-    .set(BouncePlane{0.f, 1.f, 0.f, 0.f})
-    .set(Bounciness{1.5f})
-    .set(FrictionAmount{0.9f})
-    .set(MeshName{Ogre::String("ogrehead.mesh Imported")});
+  for (int i = 0; i < 100; ++i)
+  {
+    float rndVal = float(rand()) / RAND_MAX;
+    ecs.entity()
+      .set(Position{(rndVal - 0.5f) * 40.f, 0.f, -8.f})
+      .set(Velocity{0.f, 30.f, 0.f})
+      .set(Gravity{0.f, -9.8065f, 0.f})
+      .set(BouncePlane{0.f, 1.f, 0.f, 0.f})
+      .set(Bounciness{1.5f})
+      .set(FrictionAmount{0.9f + float(rand()) / RAND_MAX * 0.1f})
+      .set(MeshName{Ogre::String("ogrehead.mesh Imported")});
+  }
 }
 
 Game::~Game()

@@ -6,8 +6,8 @@
 
 void register_ecs_mesh_systems(flecs::world &ecs)
 {
-  ecs.system<const MeshName, const Position>()
-    .each([&](flecs::entity e, const MeshName &nm, const Position &pos)
+  ecs.system<const MeshName>()
+    .each([&](flecs::entity e, const MeshName &nm)
     {
       ecs.query<RenderEnginePtr>()
         .each([&](RenderEnginePtr re)
@@ -15,7 +15,7 @@ void register_ecs_mesh_systems(flecs::world &ecs)
           if (re.ptr->IsInited())
           {
             uint32_t index = re.ptr->GetRT()->RC_CreateSceneNode("ogrehead.mesh Imported");
-            e.set<SceneNodeDeliveryIndex>(SceneNodeDeliveryIndex{index});
+            e.set(SceneNodeDeliveryIndex{index});
             e.remove<MeshName>();
           }
         });
@@ -36,6 +36,7 @@ void register_ecs_mesh_systems(flecs::world &ecs)
             Ogre::SceneNode *pSceneNode = (Ogre::SceneNode*)fiter->second;
             re.ptr->GetRT()->RC_SceneNodeSetPosition(pSceneNode, pos);
             e.set<SceneNode>(SceneNode{pSceneNode});
+            e.remove<SceneNodeDeliveryIndex>();
           }
         });
     });
