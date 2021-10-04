@@ -4,6 +4,8 @@
 
 #include <shared_mutex>
 
+#include "crc32.h"
+
 typedef std::shared_mutex Lock;
 typedef std::unique_lock<Lock>  WriteLock;
 typedef std::shared_lock<Lock>  ReadLock;
@@ -21,9 +23,11 @@ public:
 	~FileSystem();
 
 	const std::string& GetMediaRoot();
+	const std::string& GetScriptsRoot();
 
 private:
 	std::string m_strMediaRoot;
+	std::string m_strScriptsRoot;
 
 	Lock m_RWLock;
 };

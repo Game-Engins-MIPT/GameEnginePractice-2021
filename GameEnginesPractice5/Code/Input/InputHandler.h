@@ -15,6 +15,7 @@ public:
 	void Update();
 
 	const std::bitset<eIC_Max>& GetInputState() const;
+	bool IsCommandActive(EInputCommand inputCommand) const;
 
 private:
 	void LoadConfiguration();

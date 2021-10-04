@@ -13,13 +13,18 @@ InputHandler::InputHandler(const std::string& strResourceRoot)
 
 	MapSymbol("a", 'A');
 	MapSymbol("d", 'D');
+	MapSymbol("w", 'W');
+	MapSymbol("s", 'S');
+
 	MapSymbol("left", VK_LEFT);
 	MapSymbol("right", VK_RIGHT);
-	MapSymbol("space", VK_SPACE);
+	MapSymbol("up", VK_UP);
+	MapSymbol("down", VK_DOWN);
 
-	MapCommandSymbol("GoLeft", eIC_GoLeft, "a");
-	MapCommandSymbol("GoRight", eIC_GoRight, "d");
-	MapCommandSymbol("Jump", eIC_Jump, "space");
+	MapCommandSymbol("TurnLeft", eIC_TurnLeft, "a");
+	MapCommandSymbol("TurnRight", eIC_TurnRight, "d");
+	MapCommandSymbol("MoveForward", eIC_MoveForward, "w");
+	MapCommandSymbol("MoveBack", eIC_MoveBack, "s");
 
 	LoadConfiguration();
 
@@ -98,4 +103,9 @@ void InputHandler::Update()
 const std::bitset<eIC_Max>& InputHandler::GetInputState() const
 {
 	return m_InputState;
+}
+
+bool InputHandler::IsCommandActive(EInputCommand inputCommand) const
+{
+	return m_InputState.test(inputCommand);
 }

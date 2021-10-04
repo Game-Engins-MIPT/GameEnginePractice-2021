@@ -1,20 +1,19 @@
 #include "ecsMesh.h"
 #include "ecsSystems.h"
+#include "ecsScript.h"
 #include "ecsPhys.h"
 #include "flecs.h"
 #include "../RenderEngine.h"
+#include "../ScriptSystem/ScriptNode.h"
 
 void register_ecs_mesh_systems(flecs::world* ecs)
 {
-	static auto entityManagerQuery = ecs->query<EntityManagerPtr>();
-
-	ecs->system<RenderNodeComponent, const Position>()
-		.each([&](RenderNodeComponent& renderNode, const Position& pos)
+	ecs->system<ScriptNodeComponent, RenderNodeComponent, const CameraPosition, const Position>()
+		.each([&](ScriptNodeComponent& scriptNode, RenderNodeComponent& renderNode, const CameraPosition& cameraPos, const Position& pos)
 			{
-				entityManagerQuery.each([&](EntityManagerPtr em)
-					{
-						renderNode.pRenderNode->SetPosition(pos);
-					});
+				renderNode.ptr->SetPosition(pos);
+				renderNode.ptr->SetCameraPosition(cameraPos);
+				renderNode.ptr->EnableCamera();
 			});
 }
 

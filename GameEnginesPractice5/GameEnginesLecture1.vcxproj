@@ -79,13 +79,13 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)\..\SDKs\Ogre\include\OGRE;$(SolutionDir)\..\SDKs\Ogre\include\OGRE\Hlms\Common;$(SolutionDir)\..\SDKs\flecs</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)\..\SDKs\Ogre\include\OGRE;$(SolutionDir)\..\SDKs\Ogre\include\OGRE\Hlms\Common;$(SolutionDir)\..\SDKs\LuaBridge3\include;$(SolutionDir)\..\SDKs\lua\include;$(SolutionDir)\..\SDKs\crc32;$(SolutionDir)\..\SDKs\flecs</IncludePath>
     <OutDir>$(SolutionDir)\Bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>Bin\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)\..\SDKs\Ogre\include\OGRE;$(SolutionDir)\..\SDKs\Ogre\include\OGRE\Hlms\Common;$(SolutionDir)\..\SDKs\flecs</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)\..\SDKs\Ogre\include\OGRE;$(SolutionDir)\..\SDKs\Ogre\include\OGRE\Hlms\Common;$(SolutionDir)\..\SDKs\LuaBridge3\include;$(SolutionDir)\..\SDKs\lua\include;$(SolutionDir)\..\SDKs\crc32;$(SolutionDir)\..\SDKs\flecs</IncludePath>
     <OutDir>$(SolutionDir)\Bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>Bin\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
@@ -128,11 +128,12 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)\..\SDKs\Ogre\lib\Debug</AdditionalLibraryDirectories>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);OgreMain_d.lib;RenderSystem_Direct3D11_d.lib;OgreHlmsPbs_d.lib;OgreHlmsUnlit_d.lib;OgreMeshLodGenerator_d.lib;OgreSceneFormat_d.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\SDKs\Ogre\lib\Debug;$(SolutionDir)\..\SDKs\lua\lib\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);OgreMain_d.lib;RenderSystem_Direct3D11_d.lib;OgreHlmsPbs_d.lib;OgreHlmsUnlit_d.lib;OgreMeshLodGenerator_d.lib;OgreSceneFormat_d.lib;lua54.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y $(SolutionDir)\..\SDKs\Ogre\bin\Debug $(TargetDir)</Command>
+      <Command>xcopy /y $(SolutionDir)\..\SDKs\Ogre\bin\Debug $(TargetDir)
+xcopy /y $(SolutionDir)\..\SDKs\lua\bin $(TargetDir)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -150,11 +151,12 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)\..\SDKs\Ogre\lib\Release</AdditionalLibraryDirectories>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);OgreMain.lib;RenderSystem_Direct3D11.lib;OgreHlmsPbs.lib;OgreHlmsUnlit.lib;OgreMeshLodGenerator.lib;OgreSceneFormat.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\SDKs\Ogre\lib\Release;$(SolutionDir)\..\SDKs\lua\lib\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);OgreMain.lib;RenderSystem_Direct3D11.lib;OgreHlmsPbs.lib;OgreHlmsUnlit.lib;OgreMeshLodGenerator.lib;OgreSceneFormat.lib;lua54.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y $(SolutionDir)\..\SDKs\Ogre\bin\Release $(TargetDir)</Command>
+      <Command>xcopy /y $(SolutionDir)\..\SDKs\Ogre\bin\Release $(TargetDir)
+xcopy /y $(SolutionDir)\..\SDKs\lua\bin $(TargetDir)</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>xcopy /y $(SolutionDir)\..\SDKs\Ogre\bin\Release $(TargetDir)</Command>
@@ -164,8 +166,8 @@
     <ClInclude Include="Code\ECS\ecsControl.h" />
     <ClInclude Include="Code\ECS\ecsMesh.h" />
     <ClInclude Include="Code\ECS\ecsPhys.h" />
+    <ClInclude Include="Code\ECS\ecsScript.h" />
     <ClInclude Include="Code\ECS\ecsSystems.h" />
-    <ClInclude Include="Code\ECS\EntityManager.h" />
     <ClInclude Include="Code\FileSystem\FileSystem.h" />
     <ClInclude Include="Code\FileSystem\GEFile.h" />
     <ClInclude Include="Code\FileSystem\IOWrapper.h" />
@@ -180,13 +182,15 @@
     <ClInclude Include="Code\RenderNode.h" />
     <ClInclude Include="Code\RenderThread.h" />
     <ClInclude Include="Code\ResourceManager.h" />
+    <ClInclude Include="Code\ScriptSystem\ScriptNode.h" />
+    <ClInclude Include="Code\ScriptSystem\ScriptSystem.h" />
     <ClInclude Include="Code\targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\ECS\ecsControl.cpp" />
     <ClCompile Include="Code\ECS\ecsMesh.cpp" />
     <ClCompile Include="Code\ECS\ecsPhys.cpp" />
-    <ClCompile Include="Code\ECS\EntityManager.cpp" />
+    <ClCompile Include="Code\ECS\ecsScript.cpp" />
     <ClCompile Include="Code\FileSystem\FileSystem.cpp" />
     <ClCompile Include="Code\FileSystem\GEFile.cpp" />
     <ClCompile Include="Code\FileSystem\IOWrapper.cpp" />
@@ -198,6 +202,8 @@
     <ClCompile Include="Code\RenderNode.cpp" />
     <ClCompile Include="Code\RenderThread.cpp" />
     <ClCompile Include="Code\ResourceManager.cpp" />
+    <ClCompile Include="Code\ScriptSystem\ScriptNode.cpp" />
+    <ClCompile Include="Code\ScriptSystem\ScriptSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SDKs\flecs\flecs.vcxproj">

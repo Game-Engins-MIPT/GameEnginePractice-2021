@@ -54,9 +54,14 @@ void RenderEngine::Update()
 
 	for (RenderNode* pRenderNode : m_RenderNodes)
 	{
-		Ogre::Vector3 vec = pRenderNode->GetPosition();
-		vec.x += 0.01f;
-		pRenderNode->GetSceneNode()->setPosition(vec);
+		Ogre::Vector3 vPosition = pRenderNode->GetPosition();
+		pRenderNode->GetSceneNode()->setPosition(vPosition);
+
+		if (pRenderNode->IsCameraEnabled())
+		{
+			m_pCamera->setPosition(pRenderNode->GetCameraPosition());
+			m_pCamera->lookAt(vPosition);
+		}
 	}
 
 	if (m_pRenderWindow->isVisible())

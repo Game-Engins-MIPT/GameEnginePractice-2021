@@ -5,7 +5,7 @@ struct InputHandlerPtr
 	class InputHandler* ptr;
 };
 
-struct EntityManagerPtr
+struct ScriptSystemPtr
 {
-	class EntityManager* ptr;
+	class ScriptSystem* ptr;
 };

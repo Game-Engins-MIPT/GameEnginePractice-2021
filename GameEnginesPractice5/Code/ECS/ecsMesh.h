@@ -4,10 +4,10 @@
 
 struct RenderNodeComponent
 {
-	class RenderNode* pRenderNode;
+	class RenderNode* ptr;
 };
 
-struct RenderNodeDeliveryIndex
+struct RenderNodeIndex
 {
 	uint32_t idx;
 };

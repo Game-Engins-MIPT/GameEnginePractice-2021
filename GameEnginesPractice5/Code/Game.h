@@ -4,7 +4,7 @@
 #include "FileSystem/FileSystem.h"
 #include "ResourceManager.h"
 #include "Input/InputHandler.h"
-#include "ECS/EntityManager.h"
+#include "ScriptSystem/ScriptSystem.h"
 #include "GameTimer.h"
 #include "flecs.h"
 
@@ -27,6 +27,6 @@ private:
 	FileSystem* m_pFileSystem;
 	ResourceManager* m_pResourceManager;
 	InputHandler* m_pInputHandler;
-	EntityManager* m_pEntityManager;
+	ScriptSystem* m_pScriptSystem;
 };
 
