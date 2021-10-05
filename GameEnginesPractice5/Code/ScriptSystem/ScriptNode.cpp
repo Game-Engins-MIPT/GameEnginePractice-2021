@@ -44,7 +44,6 @@ ScriptNode::~ScriptNode()
 
 void ScriptNode::Update(float dt)
 {
-	ReloadScript();
 	luabridge::LuaRef object = luabridge::getGlobal(m_script, m_EntityFieldName);
 	object[m_OnUpdateFunctionName](dt);
 }
@@ -95,11 +94,17 @@ void ScriptNode::ReloadScript()
 	lua_pcall(script, 0, 0, 0);
 
 	luabridge::LuaRef object = luabridge::getGlobal(script, m_EntityFieldName);
-	luabridge::Range parameters = luabridge::pairs(object[m_ParametersFieldName]);
+	luabridge::LuaRef parameters = object[m_ParametersFieldName];
+	luabridge::Range parametersRange = luabridge::pairs(parameters);
+
+	if (parameters.isNil())
+	{
+		return;
+	}
 
 	std::string strParameterName;
 	float fValue;
-	for (auto it = parameters.begin(); it != parameters.end(); ++it)
+	for (auto it = parametersRange.begin(); it != parametersRange.end(); ++it)
 	{
 		strParameterName = it.key().cast<std::string>();
 		fValue = it.value().cast<float>();

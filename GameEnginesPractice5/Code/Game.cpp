@@ -18,9 +18,10 @@ Game::Game()
 
 	m_pEcs->entity("inputHandler")
 		.set(InputHandlerPtr{ m_pInputHandler });
-	m_pEcs->entity("entityManager")
+	m_pEcs->entity("scriptSystem")
 		.set(ScriptSystemPtr{ m_pScriptSystem });
 
+	m_pScriptSystem->CreateEntity("Actor.lua");
 	m_pScriptSystem->CreateEntity("Pawn.lua");
 
 	register_ecs_mesh_systems(m_pEcs);

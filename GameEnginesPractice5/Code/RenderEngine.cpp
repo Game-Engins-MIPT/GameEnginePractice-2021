@@ -173,7 +173,7 @@ void RenderEngine::RT_LoadOgreHead()
 
 void RenderEngine::RT_SetupDefaultLight()
 {
-	// Lightning
+	// Directional lightning
 	Ogre::Light* light = m_pSceneManager->createLight();
 	Ogre::SceneNode* lightNode = m_pSceneManager->getRootSceneNode()->createChildSceneNode();
 	lightNode->attachObject(light);

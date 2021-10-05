@@ -8,12 +8,17 @@
 
 void register_ecs_mesh_systems(flecs::world* ecs)
 {
-	ecs->system<ScriptNodeComponent, RenderNodeComponent, const CameraPosition, const Position>()
-		.each([&](ScriptNodeComponent& scriptNode, RenderNodeComponent& renderNode, const CameraPosition& cameraPos, const Position& pos)
+	ecs->system<RenderNodeComponent, const CameraPosition>()
+		.each([&](RenderNodeComponent& renderNode, const CameraPosition& cameraPos)
 			{
-				renderNode.ptr->SetPosition(pos);
 				renderNode.ptr->SetCameraPosition(cameraPos);
 				renderNode.ptr->EnableCamera();
+			});
+
+	ecs->system<RenderNodeComponent, const Position>()
+		.each([&](RenderNodeComponent& renderNode, const Position& pos)
+			{
+				renderNode.ptr->SetPosition(pos);
 			});
 }
 
