@@ -7,7 +7,7 @@ struct RenderNodeComponent
 	class RenderNode* ptr;
 };
 
-struct RenderNodeIndex
+struct EntityIndex
 {
 	uint32_t idx;
 };

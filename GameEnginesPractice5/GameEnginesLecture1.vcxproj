@@ -168,6 +168,7 @@ xcopy /y $(SolutionDir)\..\SDKs\lua\bin $(TargetDir)</Command>
     <ClInclude Include="Code\ECS\ecsPhys.h" />
     <ClInclude Include="Code\ECS\ecsScript.h" />
     <ClInclude Include="Code\ECS\ecsSystems.h" />
+    <ClInclude Include="Code\EntityManager.h" />
     <ClInclude Include="Code\FileSystem\FileSystem.h" />
     <ClInclude Include="Code\FileSystem\GEFile.h" />
     <ClInclude Include="Code\FileSystem\IOWrapper.h" />
@@ -191,6 +192,7 @@ xcopy /y $(SolutionDir)\..\SDKs\lua\bin $(TargetDir)</Command>
     <ClCompile Include="Code\ECS\ecsMesh.cpp" />
     <ClCompile Include="Code\ECS\ecsPhys.cpp" />
     <ClCompile Include="Code\ECS\ecsScript.cpp" />
+    <ClCompile Include="Code\EntityManager.cpp" />
     <ClCompile Include="Code\FileSystem\FileSystem.cpp" />
     <ClCompile Include="Code\FileSystem\GEFile.cpp" />
     <ClCompile Include="Code\FileSystem\IOWrapper.cpp" />

@@ -5,6 +5,7 @@
 #include "ResourceManager.h"
 #include "Input/InputHandler.h"
 #include "ScriptSystem/ScriptSystem.h"
+#include "EntityManager.h"
 #include "GameTimer.h"
 #include "flecs.h"
 
@@ -28,5 +29,6 @@ private:
 	ResourceManager* m_pResourceManager;
 	InputHandler* m_pInputHandler;
 	ScriptSystem* m_pScriptSystem;
+	EntityManager* m_pEntityManager;
 };
 
