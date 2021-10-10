@@ -47,6 +47,7 @@ public:
 
 	Ogre::Vector3 GetPosition() const;
 	Ogre::Vector3 GetCameraPosition() const;
+	Ogre::Quaternion GetOrientation() const;
 	std::string GetMeshName() const;
 
 private:

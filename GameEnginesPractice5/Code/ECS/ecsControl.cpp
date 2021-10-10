@@ -25,5 +25,15 @@ void register_ecs_control_systems(flecs::world* ecs)
 				pos.y = vPosition.y;
 				pos.z = vPosition.z;
 			});
+
+	ecs->system<ScriptNodeComponent, Orientation>()
+		.each([&](flecs::entity e, ScriptNodeComponent& scriptNode, Orientation& orient)
+			{
+				Ogre::Quaternion orientation = scriptNode.ptr->GetOrientation();
+				orient.x = orientation.x;
+				orient.y = orientation.y;
+				orient.z = orientation.z;
+				orient.w = orientation.w;
+			});
 }
 

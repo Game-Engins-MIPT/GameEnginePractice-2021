@@ -20,5 +20,11 @@ void register_ecs_mesh_systems(flecs::world* ecs)
 			{
 				renderNode.ptr->SetPosition(pos);
 			});
+
+	ecs->system<RenderNodeComponent, const Orientation>()
+		.each([&](RenderNodeComponent& renderNode, const Orientation& orient)
+			{
+				renderNode.ptr->SetOrientation(orient);
+			});
 }
 

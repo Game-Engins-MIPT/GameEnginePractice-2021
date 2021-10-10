@@ -57,6 +57,9 @@ void RenderEngine::Update()
 		Ogre::Vector3 vPosition = pRenderNode->GetPosition();
 		pRenderNode->GetSceneNode()->setPosition(vPosition);
 
+		Ogre::Quaternion orientation = pRenderNode->GetOrientation();
+		pRenderNode->GetSceneNode()->setOrientation(orientation);
+
 		if (pRenderNode->IsCameraEnabled())
 		{
 			m_pCamera->setPosition(pRenderNode->GetCameraPosition());

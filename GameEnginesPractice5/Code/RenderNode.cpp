@@ -5,7 +5,7 @@ RenderNode::RenderNode(uint32_t idx) :
 	m_pSceneNode(nullptr),
 	m_bIsCamera(false)
 {
-
+	Init();
 }
 
 RenderNode::RenderNode(uint32_t idx, Ogre::String& strMeshName) :
@@ -14,7 +14,16 @@ RenderNode::RenderNode(uint32_t idx, Ogre::String& strMeshName) :
 	m_strMeshName(strMeshName),
 	m_bIsCamera(false)
 {
+	Init();
+}
 
+void RenderNode::Init()
+{
+	m_vPosition = Ogre::Vector3::ZERO;
+	m_vCameraPosition = Ogre::Vector3::ZERO;
+
+	Ogre::Radian radian(0.0f);
+	m_vOrientation = Ogre::Quaternion(radian, Ogre::Vector3(0.0f, 1.0f, 0.0f));
 }
 
 RenderNode::~RenderNode()
@@ -55,6 +64,16 @@ void RenderNode::SetCameraPosition(Ogre::Vector3 position)
 Ogre::String& RenderNode::GetMeshName()
 {
 	return m_strMeshName;
+}
+
+Ogre::Quaternion RenderNode::GetOrientation() const
+{
+	return m_vOrientation;
+}
+
+void RenderNode::SetOrientation(Ogre::Quaternion position)
+{
+	m_vOrientation = position;
 }
 
 void RenderNode::SetSceneNode(Ogre::SceneNode* pSceneNode)
