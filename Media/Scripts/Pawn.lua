@@ -1,7 +1,7 @@
 Entity = {
     Properties = {
         Name = "Player",
-        MeshName = "ogrehead.mesh Imported",
+        MeshName = "ogrehead.mesh",
         
         Controllable = 1,
         HasPhysics = 0,

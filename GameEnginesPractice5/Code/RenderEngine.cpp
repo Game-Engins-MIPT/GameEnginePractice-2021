@@ -19,7 +19,6 @@ RenderEngine::RenderEngine(ResourceManager* pResourceManager) :
 	m_pRT->RC_SetupDefaultCamera();
 	m_pRT->RC_SetupDefaultCompositor();
 	m_pRT->RC_LoadDefaultResources();
-	m_pRT->RC_LoadOgreHead();
 	m_pRT->RC_SetupDefaultLight();
 
 	m_pRT->Start();
@@ -132,7 +131,11 @@ void RenderEngine::RT_CreateSceneNode(RenderNode* pRenderNode)
 	//Create an Item with the model we just imported.
 	//Notice we use the name of the imported model. We could also use the overload
 	//with the mesh pointer:
-	Ogre::Item* item = m_pSceneManager->createItem(pRenderNode->GetMeshName(),
+	Ogre::String strImportedMeshName = pRenderNode->GetMeshName() + "v1";
+	if (!Ogre::MeshManager::getSingleton().resourceExists(strImportedMeshName))
+		ImportV1Mesh(pRenderNode->GetMeshName());
+
+	Ogre::Item* item = m_pSceneManager->createItem(strImportedMeshName,
 		Ogre::ResourceGroupManager::
 		AUTODETECT_RESOURCE_GROUP_NAME,
 		Ogre::SCENE_DYNAMIC);
@@ -146,21 +149,23 @@ void RenderEngine::RT_CreateSceneNode(RenderNode* pRenderNode)
 	m_RenderNodes.push_back(pRenderNode);
 }
 
-void RenderEngine::RT_LoadOgreHead()
+void RenderEngine::ImportV1Mesh(Ogre::String strMeshName)
 {
 	//Load the v1 mesh. Notice the v1 namespace
 	//Also notice the HBU_STATIC flag; since the HBU_WRITE_ONLY
 	//bit would prohibit us from reading the data for importing.
+	Ogre::String strImportedMeshName = strMeshName + "v1";
+
 	Ogre::v1::MeshPtr v1Mesh;
 	Ogre::MeshPtr v2Mesh;
 
 	v1Mesh = Ogre::v1::MeshManager::getSingleton().load(
-		"ogrehead.mesh", Ogre::ResourceGroupManager::AUTODETECT_RESOURCE_GROUP_NAME,
+		strMeshName, Ogre::ResourceGroupManager::AUTODETECT_RESOURCE_GROUP_NAME,
 		Ogre::v1::HardwareBuffer::HBU_STATIC, Ogre::v1::HardwareBuffer::HBU_STATIC);
 
 	//Create a v2 mesh to import to, with a different name (arbitrary).
 	v2Mesh = Ogre::MeshManager::getSingleton().createManual(
-		"ogrehead.mesh Imported", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+		strImportedMeshName, Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
 
 	bool halfPosition = true;
 	bool halfUVs = true;

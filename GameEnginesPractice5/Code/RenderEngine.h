@@ -40,8 +40,9 @@ private:
 	void RT_SetupDefaultCompositor();
 	void RT_LoadDefaultResources();
 	void RT_SetupDefaultLight();
-	void RT_LoadOgreHead();
 	void RT_CreateSceneNode(RenderNode* pRenderNode);
+
+	void ImportV1Mesh(Ogre::String strMeshName);
 
 	Ogre::Root* m_pRoot;
 	Ogre::Window* m_pRenderWindow;

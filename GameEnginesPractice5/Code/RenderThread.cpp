@@ -131,11 +131,6 @@ void RenderThread::ProcessCommands()
 			m_pRenderEngine->RT_LoadDefaultResources();
 			break;
 		}
-		case eRC_LoadOgreHead:
-		{
-			m_pRenderEngine->RT_LoadOgreHead();
-			break;
-		}
 		case eRC_SetupDefaultLight:
 		{
 			m_pRenderEngine->RT_SetupDefaultLight();
@@ -237,18 +232,6 @@ void RenderThread::RC_LoadDefaultResources()
 
 	LOADINGCOMMAND_CRITICAL_SECTION;
 	byte* p = AddCommand(eRC_LoadDefaultResources, 0);
-}
-
-void RenderThread::RC_LoadOgreHead()
-{
-	if (IsRenderThread())
-	{
-		m_pRenderEngine->RT_LoadOgreHead();
-		return;
-	}
-
-	LOADINGCOMMAND_CRITICAL_SECTION;
-	byte* p = AddCommand(eRC_LoadOgreHead, 0);
 }
 
 void RenderThread::RC_SetupDefaultLight()

@@ -16,7 +16,6 @@ enum RenderCommand : UINT32
 	eRC_SetupDefaultCamera,
 	eRC_SetupDefaultCompositor,
 	eRC_LoadDefaultResources,
-	eRC_LoadOgreHead,
 	eRC_SetupDefaultLight,
 	eRC_BeginFrame,
 	eRC_CreateSceneNode,
@@ -36,7 +35,6 @@ public:
 	void RC_SetupDefaultCamera();
 	void RC_SetupDefaultCompositor();
 	void RC_LoadDefaultResources();
-	void RC_LoadOgreHead();
 	void RC_SetupDefaultLight();
 	void RC_BeginFrame();
 	void RC_EndFrame();
