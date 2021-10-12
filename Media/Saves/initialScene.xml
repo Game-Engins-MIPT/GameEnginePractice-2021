@@ -1,0 +1,11 @@
+<scene>
+	<name>Initial Scene</name>
+	<script>Pawn.lua</script>
+	<meshName>ogrehead.mesh</meshName>
+	<position>
+		<x>25.0</x>
+		<y>25.0</y>
+		<z>0</z>
+	</position>
+	<orientation></orientation>
+</scene>

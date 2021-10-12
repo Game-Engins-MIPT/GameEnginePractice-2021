@@ -25,13 +25,14 @@
 #include <math.h>
 
 // STL containers
+
 #include <vector>
 #include <string>
-
+#include <algorithm>
 #include "OgreFastArray.h"
 
 // STL algorithms & functions
-#include <algorithm>
+
 #include <limits>
 #include <functional>
 
