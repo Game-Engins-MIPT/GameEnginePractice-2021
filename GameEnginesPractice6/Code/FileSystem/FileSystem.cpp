@@ -12,6 +12,10 @@ FileSystem::FileSystem()
 	m_strScriptsRoot = m_strMediaRoot;
 	m_strScriptsRoot.append("Scripts");
 	m_strScriptsRoot.push_back(cNativeSlash);
+
+	m_strSavesRoot = m_strMediaRoot;
+	m_strSavesRoot.append("Saves");
+	m_strSavesRoot.push_back(cNativeSlash);
 }
 
 FileSystem::~FileSystem()
@@ -26,4 +30,9 @@ const std::string& FileSystem::GetMediaRoot()
 const std::string& FileSystem::GetScriptsRoot()
 {
 	return m_strScriptsRoot;
+}
+
+const std::string& FileSystem::GetSavesRoot()
+{
+	return m_strSavesRoot;
 }

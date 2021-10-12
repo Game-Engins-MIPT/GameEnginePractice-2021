@@ -24,10 +24,12 @@ public:
 
 	const std::string& GetMediaRoot();
 	const std::string& GetScriptsRoot();
+	const std::string& GetSavesRoot();
 
 private:
 	std::string m_strMediaRoot;
 	std::string m_strScriptsRoot;
+	std::string m_strSavesRoot;
 
 	Lock m_RWLock;
 };

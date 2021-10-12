@@ -14,6 +14,7 @@ Game::Game()
 	m_pRenderEngine = new RenderEngine(m_pResourceManager);
 	m_pScriptSystem = new ScriptSystem(m_pInputHandler, m_pFileSystem->GetScriptsRoot());
 	m_pEntityManager = new EntityManager(m_pRenderEngine, m_pScriptSystem, m_pEcs);
+	m_pLoadingSystem = new LoadingSystem(m_pEntityManager, m_pFileSystem->GetSavesRoot());
 
 	m_Timer.Start();
 
@@ -22,13 +23,15 @@ Game::Game()
 	m_pEcs->entity("scriptSystem")
 		.set(ScriptSystemPtr{ m_pScriptSystem });
 
-	m_pEntityManager->CreateEntity("Actor.lua");
-	m_pEntityManager->CreateEntity("Pawn.lua");
+//	m_pEntityManager->CreateEntity("Actor.lua");
+//	m_pEntityManager->CreateEntity("Pawn.lua");
+	m_pLoadingSystem->LoadFromXML("initialScene.xml");
 
 	register_ecs_mesh_systems(m_pEcs);
 	register_ecs_control_systems(m_pEcs);
 	register_ecs_phys_systems(m_pEcs);
 	register_ecs_script_systems(m_pEcs);
+	register_ecs_static_systems(m_pEcs);
 }
 
 Game::~Game()
@@ -40,6 +43,7 @@ Game::~Game()
 	SAFE_DELETE(m_pRenderEngine);
 	SAFE_DELETE(m_pScriptSystem);
 	SAFE_DELETE(m_pEntityManager);
+	SAFE_DELETE(m_pLoadingSystem);
 }
 
 void Game::Run()

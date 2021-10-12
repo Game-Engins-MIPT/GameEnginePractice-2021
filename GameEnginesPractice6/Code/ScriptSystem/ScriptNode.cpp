@@ -17,16 +17,15 @@ ScriptNode::ScriptNode(std::string strScriptPath, InputHandler* pInputHandler, f
 	luabridge::LuaRef object = luabridge::getGlobal(m_script, m_EntityFieldName);
 	luabridge::LuaRef properties = object[m_PropertiesFieldName];
 	luabridge::LuaRef controllable = properties[m_ControllableFieldName];
-	luabridge::LuaRef isStatic = properties[m_StaticsFieldName];
-
+	
 	bool bControllable = controllable.cast<bool>();
-	bool bStatic = isStatic.cast<bool>();
 
 	ent.set_name(properties[m_NameFieldName].cast<std::string>().c_str());
 
 	if (bControllable)
 		ent.add<Controllable>();
 
+	bool bStatic = GetIsStatic();
 	if (bStatic)
 		ent.add<Static>();
 	
@@ -58,10 +57,8 @@ ScriptNode::~ScriptNode()
 
 void ScriptNode::Update(float dt)
 {
-	
-		luabridge::LuaRef object = luabridge::getGlobal(m_script, m_EntityFieldName);
-		object[m_OnUpdateFunctionName](dt);
-	
+	luabridge::LuaRef object = luabridge::getGlobal(m_script, m_EntityFieldName);
+	object[m_OnUpdateFunctionName](dt);
 }
 
 Ogre::Vector3 ScriptNode::GetPosition() const
@@ -138,6 +135,13 @@ void ScriptNode::ReloadScript()
 		fValue = it.value().cast<float>();
 		currentObject[m_ParametersFieldName][strParameterName] = fValue;
 	}
+}
+
+bool ScriptNode::GetIsStatic() const 
+{
+	luabridge::LuaRef object = luabridge::getGlobal(m_script, m_EntityFieldName);
+	luabridge::LuaRef isStatic = object[m_StaticsFieldName];
+	return isStatic.cast<bool>();
 }
 
 void ScriptNode::AddDependencies(lua_State* L)

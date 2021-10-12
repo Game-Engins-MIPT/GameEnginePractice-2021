@@ -3,13 +3,23 @@
 #include "ScriptSystem/ScriptSystem.h"
 #include "LoadingSystem/LoadingSystem.h"
 #include "string.h"
+
+struct Spawn
+{
+	std::string meshName;
+	std::string scriptName;
+	Ogre::Vector3 position;
+	Ogre::Quaternion rotation;
+};
+
 struct Entity
 {
 	RenderNode* pRenderNode;
 	ScriptNode* pScriptNode;
+	Ogre::Vector3 position;
+	Ogre::Quaternion rotation;
 	int idx;
 };
-
 
 
 class EntityManager
@@ -21,7 +31,7 @@ public:
 	EntityManager& operator=(const EntityManager&) = delete;
 
 	void CreateEntity(std::string strScriptName);
-	void CreateEntity(std::string xmlSaveName, bool fromSave);
+	void CreateEntity(const Spawn &fromSave);
 
 	std::unordered_map<uint32_t, Entity> GetEntityQueue() const;
 
