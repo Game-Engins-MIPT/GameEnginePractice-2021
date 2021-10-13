@@ -23,8 +23,6 @@ Game::Game()
 	m_pEcs->entity("scriptSystem")
 		.set(ScriptSystemPtr{ m_pScriptSystem });
 
-//	m_pEntityManager->CreateEntity("Actor.lua");
-//	m_pEntityManager->CreateEntity("Pawn.lua");
 	m_pLoadingSystem->LoadFromXML("initialScene.xml");
 
 	register_ecs_mesh_systems(m_pEcs);

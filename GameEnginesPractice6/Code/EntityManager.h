@@ -4,7 +4,7 @@
 #include "LoadingSystem/LoadingSystem.h"
 #include "string.h"
 
-struct Spawn
+struct EntityInfo
 {
 	std::string meshName;
 	std::string scriptName;
@@ -31,7 +31,7 @@ public:
 	EntityManager& operator=(const EntityManager&) = delete;
 
 	void CreateEntity(std::string strScriptName);
-	void CreateEntity(const Spawn &fromSave);
+	void CreateEntity(const EntityInfo &fromSave);
 
 	std::unordered_map<uint32_t, Entity> GetEntityQueue() const;
 

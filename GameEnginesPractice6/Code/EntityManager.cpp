@@ -39,7 +39,7 @@ void EntityManager::CreateEntity(std::string strScriptName)
 }
 
 
-void EntityManager::CreateEntity(const Spawn &fromSave)
+void EntityManager::CreateEntity(const EntityInfo &fromSave)
 {
 	flecs::entity newEntity = m_pEcs->entity();
 	uint32_t nIndex = GetNewIndex();
