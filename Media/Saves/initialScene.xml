@@ -1,0 +1,34 @@
+
+<scene>
+	<name>Initial Scene</name>
+	<character>
+		<scriptName>Pawn.lua</scriptName>
+		<meshName>ogrehead.mesh</meshName>
+		<position>
+			<x>0.0</x>
+			<y>0.0</y>
+			<z>0</z>
+		</position>
+		<quaternion>
+			<w>0.0</w>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0</z>
+		</quaternion>
+	</character>
+	<character>
+		<scriptName>Actor.lua</scriptName>
+		<meshName>ogrehead.mesh</meshName>
+		<position>
+			<x>25.0</x>
+			<y>0.0</y>
+			<z>0</z>
+		</position>
+		<quaternion>
+			<w>0.0</w>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0</z>
+		</quaternion>
+	</character>
+</scene>

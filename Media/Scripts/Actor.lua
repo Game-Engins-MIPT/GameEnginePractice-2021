@@ -5,6 +5,7 @@ Entity = {
         
         Controllable = 0,
         HasPhysics = 0,
+        IsStatic = 1
     },
     
     up_vector = Vector3(0.0, 1.0, 0.0),
