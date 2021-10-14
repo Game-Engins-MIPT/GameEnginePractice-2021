@@ -2,6 +2,7 @@
 #include "../EntityManager.h"
 #include "OgreSceneManager.h"
 #include "tinyxml.h"
+#include <regex>
 
 LoadingSystem::LoadingSystem(EntityManager* pEntityManager, const std::string& scriptsRoot) :
 	m_pEntityManager(pEntityManager),
@@ -24,6 +25,7 @@ void LoadingSystem::LoadFromXML(const std::string fileName)
 			EntityInfo currentCharacter;
 			currentCharacter.meshName = e->Attribute("meshName");
 			currentCharacter.scriptName = e->Attribute("scriptName");
+			currentCharacter.position = ParsePosition(e->Attribute("position"));
 
 			m_pEntityManager->CreateEntity(currentCharacter);
 		}
@@ -53,3 +55,24 @@ LoadingSystem::~LoadingSystem()
 {
 
 };
+
+Ogre::Vector3 LoadingSystem::ParsePosition(const char* strPosition)
+{
+	std::regex regex("[+-]?([0-9]*[.])?[0-9]+");
+	std::cmatch match;
+
+	Ogre::Vector3 vPosition;
+
+	std::regex_search(strPosition, match, regex);
+	vPosition.x = std::stof(match[0]);
+
+	strPosition = match.suffix().first;
+	std::regex_search(strPosition, match, regex);
+	vPosition.y = std::stof(match[0]);
+
+	strPosition = match.suffix().first;
+	std::regex_search(strPosition, match, regex);
+	vPosition.z = std::stof(match[0]);
+
+	return vPosition;
+}

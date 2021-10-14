@@ -23,7 +23,6 @@ Entity = {
 
 Entity.OnInit = function()
 	Entity.orientation = Quaternion(Entity.radian, Entity.up_vector);
-    Entity.position = Vector3(0.0, 0.0, 0.0);
 end
 
 Entity.OnUpdate = function(dt)
@@ -54,6 +53,12 @@ end
 
 Entity.GetPosition = function()
     return Entity.position;
+end
+
+Entity.SetPosition = function(x, y, z)
+    Entity.position.x = x;
+    Entity.position.y = y;
+    Entity.position.z = z;
 end
 
 Entity.GetCameraPosition = function()

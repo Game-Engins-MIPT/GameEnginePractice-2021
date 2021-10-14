@@ -22,6 +22,12 @@ Entity.GetPosition = function()
     return Entity.position;
 end
 
+Entity.SetPosition = function(x, y, z)
+    Entity.position.x = x;
+    Entity.position.y = y;
+    Entity.position.z = z;
+end
+
 Entity.GetOrientation = function()
     return Entity.orientation;
 end

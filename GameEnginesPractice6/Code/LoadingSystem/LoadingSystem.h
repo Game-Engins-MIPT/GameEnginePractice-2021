@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include "Ogre.h"
 
 class EntityManager;
 
@@ -16,5 +17,6 @@ private:
 	EntityManager* m_pEntityManager;
 	std::string m_strSavesRootPath;
 
+	Ogre::Vector3 ParsePosition(const char* strPosition);
 };
 

@@ -45,6 +45,7 @@ void EntityManager::CreateEntity(const EntityInfo &fromSave)
 	uint32_t nIndex = GetNewIndex();
 
 	ScriptNode* pScriptNode = m_pScriptSystem->CreateScriptNode(fromSave.scriptName, newEntity);
+	pScriptNode->SetPosition(fromSave.position);
 
 	Ogre::String strMeshName = fromSave.meshName;
 	RenderNode* pRenderNode = new RenderNode(nIndex, strMeshName);

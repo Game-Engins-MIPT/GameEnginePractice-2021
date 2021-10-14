@@ -73,6 +73,12 @@ Ogre::Vector3 ScriptNode::GetPosition() const
 	return vPosition;
 }
 
+void ScriptNode::SetPosition(Ogre::Vector3 position)
+{
+	luabridge::LuaRef object = luabridge::getGlobal(m_script, m_EntityFieldName);
+	object[m_SetPositionFunctionName](position.x, position.y, position.z);
+}
+
 Ogre::Vector3 ScriptNode::GetCameraPosition() const
 {
 	luabridge::LuaRef object = luabridge::getGlobal(m_script, m_EntityFieldName);
