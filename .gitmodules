@@ -1,0 +1,12 @@
+[submodule "SDKs/bx"]
+	path = SDKs/bx
+	url = https://github.com/bkaradzic/bx.git
+[submodule "SDKs/bgfx"]
+	path = SDKs/bgfx
+	url = https://github.com/bkaradzic/bgfx.git
+[submodule "SDKs/bimg"]
+	path = SDKs/bimg
+	url = https://github.com/bkaradzic/bimg.git
+[submodule "SDKs/glfw"]
+	path = SDKs/glfw
+	url = https://github.com/glfw/glfw.git
