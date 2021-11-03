@@ -58,7 +58,8 @@ static void draw_nav_grid(DebugDrawEncoder &dde, const char *input, int dim)
     for (int y = 0; y < dim; ++y)
       for (int x = 0; x < dim; ++x)
       {
-        dde.setColor(input[y * dim + x] == ' ' ? 0xffeeeeee : 0xff222222);
+        char symb = input[y * dim + x];
+        dde.setColor(symb == ' ' ? 0xffeeeeee : symb == 'o' ? 0xff777777 :  0xff222222);
         dde.drawQuad(bx::Vec3(0.f,0.f,1.f), bx::Vec3(float(x - dim/2), float(y - dim/2), 0.f), 1.f);
       }
   dde.pop();
@@ -138,14 +139,15 @@ static std::vector<GridPos> find_path_a_star(const char *input, int dim, GridPos
         return;
       int idx = p.y * dim + p.x;
       // not empty
-      if (input[idx] != ' ')
+      if (input[idx] == 'x')
         return;
-      float gScore = getG(curPos) + 1; // we're exactly 1 unit away
+      float weight = input[idx] == 'o' ? 10.f : 1.f;
+      float gScore = getG(curPos) + 1.f * weight; // we're exactly 1 unit away
       if (gScore < getG(p))
       {
         prev[idx] = curPos;
         g[idx] = gScore;
-        g[idx] = gScore + heuristic(p, to);
+        f[idx] = gScore + heuristic(p, to);
       }
       bool found = std::find(openList.begin(), openList.end(), p) != openList.end();
       if (!found)
@@ -214,9 +216,7 @@ int main(int argc, const char **argv)
       {
         int idx = p.y * dim + p.x;
         if (idx >= 0 && idx < dim * dim)
-        {
-          navGrid[idx] = navGrid[idx] == ' ' ? 'x' : ' ';
-        }
+          navGrid[idx] = navGrid[idx] == ' ' ? 'x' : navGrid[idx] == 'x' ? 'o' : ' ';
       }
       else
       {
