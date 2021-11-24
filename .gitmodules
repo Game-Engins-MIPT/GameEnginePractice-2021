@@ -10,3 +10,6 @@
 [submodule "SDKs/glfw"]
 	path = SDKs/glfw
 	url = https://github.com/glfw/glfw.git
+[submodule "SDKs/optick"]
+	path = SDKs/optick
+	url = git@github.com:bombomby/optick.git
