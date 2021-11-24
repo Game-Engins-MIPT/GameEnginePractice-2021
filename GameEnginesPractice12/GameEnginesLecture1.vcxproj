@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{f82e2e7b-5a12-4f9f-a60b-5bbba22f2cf1}</ProjectGuid>
+    <RootNamespace>GameEnginesLecture1</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>GameEngine</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)\..\SDKs\Ogre\include\OGRE;$(SolutionDir)\..\SDKs\Ogre\include\OGRE\Hlms\Common;$(SolutionDir)\..\SDKs\LuaBridge3\include;$(SolutionDir)\..\SDKs\lua\include;$(SolutionDir)\..\SDKs\crc32;$(SolutionDir)\..\SDKs\flecs;$(SolutionDir)\..\SDKs\tinyxml;$(SolutionDir)\..\SDKs\optick\src</IncludePath>
+    <OutDir>$(SolutionDir)\Bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>Bin\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)\..\SDKs\Ogre\include\OGRE;$(SolutionDir)\..\SDKs\Ogre\include\OGRE\Hlms\Common;$(SolutionDir)\..\SDKs\LuaBridge3\include;$(SolutionDir)\..\SDKs\lua\include;$(SolutionDir)\..\SDKs\crc32;$(SolutionDir)\..\SDKs\flecs;$(SolutionDir)\..\SDKs\tinyxml;$(SolutionDir)\..\SDKs\optick\src</IncludePath>
+    <OutDir>$(SolutionDir)\Bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>Bin\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\SDKs\Ogre\lib\Debug;$(SolutionDir)\..\SDKs\lua\lib\;$(SolutionDir)\Bin\$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);OgreMain_d.lib;RenderSystem_Direct3D11_d.lib;OgreHlmsPbs_d.lib;OgreHlmsUnlit_d.lib;OgreMeshLodGenerator_d.lib;OgreSceneFormat_d.lib;lua54.lib;tinyxml.lib;</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y $(SolutionDir)\..\SDKs\Ogre\bin\Debug $(TargetDir)
+xcopy /y $(SolutionDir)\..\SDKs\lua\bin $(TargetDir)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\SDKs\Ogre\lib\Release;$(SolutionDir)\..\SDKs\lua\lib\;$(SolutionDir)\Bin\$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);OgreMain.lib;RenderSystem_Direct3D11.lib;OgreHlmsPbs.lib;OgreHlmsUnlit.lib;OgreMeshLodGenerator.lib;OgreSceneFormat.lib;lua54.lib;tinyxml.lib</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y $(SolutionDir)\..\SDKs\Ogre\bin\Release $(TargetDir)
+xcopy /y $(SolutionDir)\..\SDKs\lua\bin $(TargetDir)</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>xcopy /y $(SolutionDir)\..\SDKs\Ogre\bin\Release $(TargetDir)</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Code\ECS\ecsControl.h" />
+    <ClInclude Include="Code\ECS\ecsMesh.h" />
+    <ClInclude Include="Code\ECS\ecsPhys.h" />
+    <ClInclude Include="Code\ECS\ecsScript.h" />
+    <ClInclude Include="Code\ECS\ecsSystems.h" />
+    <ClInclude Include="Code\EntityManager.h" />
+    <ClInclude Include="Code\FileSystem\FileSystem.h" />
+    <ClInclude Include="Code\FileSystem\GEFile.h" />
+    <ClInclude Include="Code\FileSystem\IOWrapper.h" />
+    <ClInclude Include="Code\framework.h" />
+    <ClInclude Include="Code\Game.h" />
+    <ClInclude Include="Code\GameTimer.h" />
+    <ClInclude Include="Code\Input\Input.h" />
+    <ClInclude Include="Code\Input\InputHandler.h" />
+    <ClInclude Include="Code\LoadingSystem\LoadingSystem.h" />
+    <ClInclude Include="Code\Main.h" />
+    <ClInclude Include="Code\ProjectDefines.h" />
+    <ClInclude Include="Code\RenderEngine.h" />
+    <ClInclude Include="Code\RenderNode.h" />
+    <ClInclude Include="Code\RenderThread.h" />
+    <ClInclude Include="Code\ResourceManager.h" />
+    <ClInclude Include="Code\ScriptSystem\ScriptNode.h" />
+    <ClInclude Include="Code\ScriptSystem\ScriptSystem.h" />
+    <ClInclude Include="Code\targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Code\ECS\ecsControl.cpp" />
+    <ClCompile Include="Code\ECS\ecsMesh.cpp" />
+    <ClCompile Include="Code\ECS\ecsPhys.cpp" />
+    <ClCompile Include="Code\ECS\ecsScript.cpp" />
+    <ClCompile Include="Code\ECS\ecsStatic.cpp" />
+    <ClCompile Include="Code\EntityManager.cpp" />
+    <ClCompile Include="Code\FileSystem\FileSystem.cpp" />
+    <ClCompile Include="Code\FileSystem\GEFile.cpp" />
+    <ClCompile Include="Code\FileSystem\IOWrapper.cpp" />
+    <ClCompile Include="Code\Game.cpp" />
+    <ClCompile Include="Code\GameTimer.cpp" />
+    <ClCompile Include="Code\Input\InputHandler.cpp" />
+    <ClCompile Include="Code\LoadingSystem\LoadingSystem.cpp" />
+    <ClCompile Include="Code\Main.cpp" />
+    <ClCompile Include="Code\RenderEngine.cpp" />
+    <ClCompile Include="Code\RenderNode.cpp" />
+    <ClCompile Include="Code\RenderThread.cpp" />
+    <ClCompile Include="Code\ResourceManager.cpp" />
+    <ClCompile Include="Code\ScriptSystem\ScriptNode.cpp" />
+    <ClCompile Include="Code\ScriptSystem\ScriptSystem.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SDKs\flecs\flecs.vcxproj">
+      <Project>{f9425b19-3687-425b-a5b8-3ed1fd9f428c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\SDKs\optick\optick.vcxproj">
+      <Project>{7df154c0-a4fd-4f52-8bce-b3741f532c29}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
